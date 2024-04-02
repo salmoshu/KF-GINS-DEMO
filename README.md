@@ -46,7 +46,7 @@ make -j8
 
 # Run demo dataset
 cd ~/KF-GINS-DEMO
-./bin/KF-GINS ./dataset/basic.yaml
+./bin/main ./dataset/basic.yaml
 
 # Wait until the program finish
 ```
@@ -82,7 +82,14 @@ Referring：https://github.com/IntelRealSense/realsense-ros/blob/ros1-legacy/REA
 
 IMU线性插值做法是在pipe.start(cfg, callback)的回调函数中增加插值函数FillImuData_LinearInterpolation，它主要对加速度计的数据进行了插值或外推从而跟陀螺仪数据对齐，其中比较核心的一个步骤是：
 
+```c++
 template <typename T> T lerp(const T &a, const T &b, const double t) {
     return a * (1.0 - t) + b * t;
 }
+```
+
 这段代码是一个线性插值函数，用于在两个值a和b之间进行插值。参数t表示插值的比例，取值范围为[0, 1]，它由加速度计和陀螺仪数据之间的相对时间间隔得到。
+
+
+## 3 To Do
+1. 将线性插值业务与RealSense SDK进行解耦；

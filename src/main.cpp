@@ -2,6 +2,7 @@
 #include <mutex>
 #include <thread>
 
+
 int main() {
     rs2::pipeline pipe;
     rs2::config cfg;
@@ -23,13 +24,6 @@ int main() {
         Eigen::Vector3d v(crnt_reading.x, crnt_reading.y, crnt_reading.z);
         CimuData imu_data(stream_index, v, frame.get_timestamp());
         std::deque<sync_imu_data> imu_msgs;
-
-        if(stream == ACCEL.first) {
-            std::cout << "ACCE1: " << crnt_reading.x << "\n";
-        }
-        if(stream == GYRO.first) {
-            std::cout << "GYRO1: " << crnt_reading.x << "\n";
-        }
 
         FillImuData_LinearInterpolation(imu_data, imu_msgs);
 
@@ -57,4 +51,12 @@ int main() {
     }
 
     return 0;
+}
+
+/**
+ * @brief 将IMU数据转换为增量型输出
+ *        English Notes
+ * */
+double rate2increment(double v1, double v2, double dt) {
+    return (v1+v2)/2*dt;
 }
