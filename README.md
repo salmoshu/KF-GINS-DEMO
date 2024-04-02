@@ -4,6 +4,10 @@
 
 KF-GINS的实践项目，软件采用C++语言编写，采用CMake管理项目。
 
+Referring：https://github.com/i2Nav-WHU/KF-GINS
+
+使用的硬件平台：
+
 - MCU（RK3308）：基于RK3308的RockPiS，行业内RK3308主要是用来做蓝牙音箱的，以前在RockPiS里面跑过10Hz的RTKLIB，对于基于ESKF的组合导航算法其算力是够的。
 
 - LC29H（AG3335A）：LC29H DA是移远基于AG3335A（L1+L5）的1Hz RTK模块。AG3335A内置一个MCU，主频530MHz、配备4MB flash、664KB SYSRAM以及一些基础的外设，很多初创公司或初设RTK业务的公司都会采用AG3335A作为RTK的研发起点，避免了自己开模做芯片的复杂过程，同时又能将产品体积做得相对较小。
