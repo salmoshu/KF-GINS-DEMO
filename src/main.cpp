@@ -1,4 +1,4 @@
-#include <sync/rs2sync.h>
+#include <senssync/rs2sync.h>
 #include <mutex>
 #include <thread>
 
