@@ -2,8 +2,6 @@
 #define RS2SYNC_H
 
 #include <librealsense2/rs.hpp>
-#include <iostream>
-
 #include <deque>
 #include <Eigen/Core>
 
