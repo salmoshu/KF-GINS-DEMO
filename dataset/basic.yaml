@@ -6,7 +6,7 @@
 # GNSS数据文件路径
 # gnssdata filepath
 # gnsspath: "./dataset/serial-nmea.txt"
-abspath: "/home/salmos/SLAM/rs2"
+abspath: "/home/salmos/SLAM/KF-GINS-DEMO"
 gnsspath: "/dataset/serial-nmea.txt"
 
 # 输出文件夹路径

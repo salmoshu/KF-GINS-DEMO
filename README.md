@@ -90,6 +90,19 @@ template <typename T> T lerp(const T &a, const T &b, const double t) {
 
 这段代码是一个线性插值函数，用于在两个值a和b之间进行插值。参数t表示插值的比例，取值范围为[0, 1]，它由加速度计和陀螺仪数据之间的相对时间间隔得到。
 
+### 2.4 imulib
+IMU相关操作，如速率型数据转换为增量型数据：
+```c++
+/**
+ * @brief 将IMU数据转换为增量型输出
+ *        English Notes
+ * */
+double rate2inc(double v1, double v2, double dt) {
+    return (v1 + (v2 - v1)/2) * dt;
+}
+```
+
+
 
 ## 3 To Do
 1. 将线性插值业务与RealSense SDK进行解耦；
