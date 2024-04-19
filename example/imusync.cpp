@@ -1,3 +1,6 @@
+/**
+ * 基于插值的IMU数据同步示例
+*/
 #include <librealsense2/rs.hpp>
 #include <map>
 #include <string>

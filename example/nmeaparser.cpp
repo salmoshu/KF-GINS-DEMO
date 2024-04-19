@@ -1,3 +1,7 @@
+/**
+ * NMEA数据解析的示例程序
+*/
+
 #include <stdio.h>
 #include <string.h>
 

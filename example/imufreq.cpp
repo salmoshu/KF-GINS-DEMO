@@ -1,3 +1,7 @@
+/**
+ * IMU输出频率检验的示例程序
+*/
+
 #include <librealsense2/rs.hpp>
 #include <map>
 #include <string>

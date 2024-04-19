@@ -1,3 +1,7 @@
+/**
+ * IMU速率型数据转换为增量型数据的示例程序
+*/
+
 #include <senssync/rs2sync.h>
 #include <imulib/imulib.h>
 #include <iostream>

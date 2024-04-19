@@ -1,3 +1,6 @@
+/**
+ * NMEA数据转换为表格类数据的示例程序
+*/
 #include <minmea/minmea.h>
 #include <rtklib/rtklib.h>
 #include <yaml-cpp/yaml.h>
