@@ -16,7 +16,7 @@ endif()
 
 file(GLOB_RECURSE SOURCE
         src/minmea/minmea.cpp
-        src/rtklib/rtkcmn.cpp
+        src/rtklib/rtkcmn.c
         src/senssync/imusync.cpp
         src/imulib/common.cpp
         src/main.cpp)
