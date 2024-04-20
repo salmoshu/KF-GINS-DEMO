@@ -7,15 +7,15 @@
 # gnssdata filepath
 # gnsspath: "./dataset/serial-nmea.txt"
 abspath: "/home/salmos/SLAM/KF-GINS-DEMO"
-gnsspath: "/dataset/serial-nmea.txt"
+gnsspath: "/dataset/GNSS_LOG.txt"
 
 # 输出文件夹路径
 # output folder path
-outputpath: "/dataset/serial-table.txt"
+outputpath: "/dataset/GNSS_TABLE.txt"
 
 # GNSS未知方差
 # GNSS position STD (north-east-down)
 gnssnoise:
-  nstd: 0         # m
-  estd: 0         # m
-  hstd: 0         # m
+  nstd: 0.2         # m
+  estd: 0.2         # m
+  hstd: 0.2         # m

@@ -16,9 +16,17 @@ endif()
 
 file(GLOB_RECURSE SOURCE
         src/minmea/minmea.cpp
+        
         src/rtklib/rtkcmn.c
+        src/rtklib/stream.c
+        src/rtklib/solution.c
+        src/rtklib/geoid.c
+        
         src/senssync/imusync.cpp
         src/imulib/common.cpp
+
+        # main program
+        src/nmea2table.cpp
         src/main.cpp)
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
@@ -34,3 +42,5 @@ include_directories(ThirdParty/eigen-3.3.9)
 # yaml-cpp-0.7.0
 add_subdirectory(ThirdParty/yaml-cpp-0.7.0)
 target_link_libraries(${PROJECT_NAME} yaml-cpp)
+
+target_link_libraries(${PROJECT_NAME} pthread)

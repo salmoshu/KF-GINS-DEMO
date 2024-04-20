@@ -1,13 +1,12 @@
-/**
- * IMU速率型数据转换为增量型数据的示例程序
-*/
-
 #include <senssync/rs2sync.h>
 #include <imulib/imulib.h>
-#include <iostream>
 #include <mutex>
 #include <thread>
 #include <iomanip>
+
+#include <iostream>
+#include <fstream>
+#include <string>
 
 struct inc_data
 {
@@ -33,6 +32,9 @@ int main() {
 
     sync_imu_data last_imu_msg = {0};
     inc_data res_data;
+
+    std::string respath =  "../dataset/imudata.txt";
+	std::ofstream outFile(respath, std::ios::out);
 
     auto callback = [&](rs2::frame frame)
     {
@@ -62,10 +64,21 @@ int main() {
                 res_data.dv_x = rate2inc(last_imu_msg.gyro_data.y, imu_msg.gyro_data.y, dt);
                 res_data.dv_x = rate2inc(last_imu_msg.gyro_data.z, imu_msg.gyro_data.z, dt);
 
-                std::cout << std::setprecision(13) << res_data.timestamp << " " << dt << " "
-                          << res_data.da_x << " "
-                          << res_data.dv_x << " " << std::endl;
+                // std::cout << std::setprecision(13) << res_data.timestamp << " " << dt << " "
+                //           << res_data.da_x << " "
+                //           << res_data.dv_x << " " << std::endl;
             }
+
+            if(last_imu_msg.accel_data.x && last_imu_msg.gyro_data.x) {
+                outFile << std::setprecision(13) << imu_msg.timestamp << " ";
+                outFile << std::setprecision(13) << res_data.da_x << " ";
+                outFile << std::setprecision(13) << res_data.da_y << " ";
+                outFile << std::setprecision(13) << res_data.da_z << " ";
+                outFile << std::setprecision(13) << res_data.dv_x << " ";
+                outFile << std::setprecision(13) << res_data.dv_y << " ";
+                outFile << std::setprecision(13) << res_data.dv_z << " ";
+                outFile << "\n";
+        }
 
             last_imu_msg = imu_msg;
 

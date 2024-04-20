@@ -3180,28 +3180,28 @@ extern void strsendcmd(stream_t *str, const char *cmd)
         }
         else if (*msg=='!') { /* binary escape */
             
-            if (!strncmp(msg+1,"WAIT",4)) { /* wait */
-                if (sscanf(msg+5,"%d",&ms)<1) ms=100;
-                if (ms>3000) ms=3000; /* max 3 s */
-                sleepms(ms);
-            }
-            else if (!strncmp(msg+1,"BRATE",5)) { /* set bitrate */
-                if (sscanf(msg+6,"%d",&brate)<1) brate=115200;
-                set_brate(str,brate);
-                sleepms(500);
-            }
-            else if (!strncmp(msg+1,"UBX",3)) { /* ublox */
-                if ((m=gen_ubx(msg+4,buff))>0) strwrite(str,buff,m);
-            }
-            else if (!strncmp(msg+1,"STQ",3)) { /* skytraq */
-                if ((m=gen_stq(msg+4,buff))>0) strwrite(str,buff,m);
-            }
-            else if (!strncmp(msg+1,"NVS",3)) { /* nvs */
-                if ((m=gen_nvs(msg+4,buff))>0) strwrite(str,buff,m);
-            }
-            else if (!strncmp(msg+1,"HEX",3)) { /* general hex message */
-                if ((m=gen_hex(msg+4,buff))>0) strwrite(str,buff,m);
-            }
+            // if (!strncmp(msg+1,"WAIT",4)) { /* wait */
+            //     if (sscanf(msg+5,"%d",&ms)<1) ms=100;
+            //     if (ms>3000) ms=3000; /* max 3 s */
+            //     sleepms(ms);
+            // }
+            // else if (!strncmp(msg+1,"BRATE",5)) { /* set bitrate */
+            //     if (sscanf(msg+6,"%d",&brate)<1) brate=115200;
+            //     set_brate(str,brate);
+            //     sleepms(500);
+            // }
+            // else if (!strncmp(msg+1,"UBX",3)) { /* ublox */
+            //     if ((m=gen_ubx(msg+4,buff))>0) strwrite(str,buff,m);
+            // }
+            // else if (!strncmp(msg+1,"STQ",3)) { /* skytraq */
+            //     if ((m=gen_stq(msg+4,buff))>0) strwrite(str,buff,m);
+            // }
+            // else if (!strncmp(msg+1,"NVS",3)) { /* nvs */
+            //     if ((m=gen_nvs(msg+4,buff))>0) strwrite(str,buff,m);
+            // }
+            // else if (!strncmp(msg+1,"HEX",3)) { /* general hex message */
+            //     if ((m=gen_hex(msg+4,buff))>0) strwrite(str,buff,m);
+            // }
         }
         else {
             strcat(msg,cmdend);
